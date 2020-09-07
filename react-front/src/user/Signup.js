@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../index.css';
 
 export class Signup extends Component {
     constructor() {
@@ -25,7 +26,7 @@ export class Signup extends Component {
             password
         };
         // console.log(user);
-        fetch("http://localhost:8080/signup", {
+        fetch("http://localhost:3000/signup", {
             method: "POST",
             headers: {
                 Accept: "application/json",
