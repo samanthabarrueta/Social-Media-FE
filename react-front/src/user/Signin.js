@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../index.css';
 
 export class Signin extends Component {
     constructor() {
@@ -24,7 +25,7 @@ export class Signin extends Component {
             password
         };
         // console.log(user);
-        fetch("http://localhost:8080/signup", {
+        fetch("http://localhost:3000/signup", {
             method: "POST",
             headers: {
                 Accept: "application/json",
@@ -40,7 +41,7 @@ export class Signin extends Component {
 
 
     render() {
-        const {name, email, password, error} = this.state;
+        const {email, password, error} = this.state;
         return (
             <div className="container">
                 <h2 className="mt-5 mb-5">Signin</h2>
