@@ -64,7 +64,7 @@ export class Signup extends Component {
                         <label className="text-muted">Password</label>
                         <input onChange={this.handleChange("password")} type="password" className="form-control" value={password}/>
                     </div>
-                    <button onClick={this.clickSubmit} className="btn-raised btn-primary">
+                    <button onClick={this.clickSubmit} className="btn-raised btn-secondary">
                         Submit
                     </button>
                 </form>

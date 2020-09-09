@@ -12,12 +12,12 @@ export class AddPostForm extends Component {
 
     render() {
         return (            
-            <form>
+            <form className="form">
                 <div className= "card">
                     <input
                         placeholder="What's on your mind?">
                     </input>
-                    <button>{"Post"}</button>
+                    <button className="btn-raised btn-secondary">{"Post"}</button>
                 </div>
             </form>
             
