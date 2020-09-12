@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
+import {Container, Row} from "react-bootstrap/";
+
 import '../index.css';
 export class Signin extends Component {
     constructor() {
@@ -42,9 +45,9 @@ export class Signin extends Component {
     render() {
         const {email, password, error} = this.state;
         return (
-            <div className="container">
-                <h2 className="mt-5 mb-5">Signin</h2>
-
+            <Container>
+                <Row><h3>Project 3</h3></Row>
+                <div className="header">
                 <div className="alert alert-primary" style={{display: error ? "" : "none"}}>
                     {error}
                 </div>
@@ -58,11 +61,19 @@ export class Signin extends Component {
                         <label className="text-muted">Password</label>
                         <input onChange={this.handleChange("password")} type="password" className="form-control" value={password}/>
                     </div>
-                    <button onClick={this.clickSubmit} className="btn-raised btn-secondary">
-                        Submit
-                    </button>
                 </form>
-            </div>
+                <Row className="nav-link">
+                    <button onClick={this.clickSubmit} className="btn-raised btn-secondary">
+                        Log In
+                    </button> {"                               "}
+                    <Link to={"/signup"}>
+                        <button className="btn-raised btn-secondary">
+                            Create an Account
+                        </button>                        
+                    </Link>
+                </Row>   
+                </div>             
+            </Container>
         );
     }
 }
