@@ -6,7 +6,7 @@ export class ProfileFeed extends Component {
     render() {
         return (
             <div>
-                <AddPostForm />
+                <AddPostForm /><br /><br />
                 <ProfilePosts />
             </div>
         )

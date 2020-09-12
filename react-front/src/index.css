@@ -1,5 +1,5 @@
   
-body {
+body, .btn-raised, .nav-link {
     
     margin: 0;
     padding-left: 150px;
@@ -43,3 +43,8 @@ h6 {
 p {
   font-size: 14px
 }
+
+.header {
+  padding: 50px
+}
+

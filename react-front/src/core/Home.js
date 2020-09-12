@@ -1,16 +1,18 @@
 import React from 'react';
-import HomeFeed from '../feed/Home'
+import HomeFeed from '../feed/Home';
+import Nav from './Nav';
+import Container from "react-bootstrap/Container";
 
 const Home = () => (
-    <div>
-        <div className= "jumbotron">
-            <h2>Home</h2>
-            <p className= "lead"> Welcome to React Frontend</p>
+    <Container>
+        <div className="header">
+            <h2>Project 3</h2><br /><br />
+            <Nav />
         </div>
         <div>
             <HomeFeed />
         </div>
-    </div>
+    </Container>
 );
 
 export default Home;

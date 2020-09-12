@@ -7,7 +7,7 @@ import { faHome, faUser } from "@fortawesome/free-solid-svg-icons";
 class NavBar extends Component {
     render() {
         return (
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
+            <nav className="navbar-expand-lg navbar-light">
                 <ul className="navbar-nav mr-auto">
                     <li>
                         <Link to={"/"} className="nav-link">

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../index.css';
+import {Container, Row} from "react-bootstrap/";
 
 export class Signup extends Component {
     constructor() {
@@ -44,9 +45,9 @@ export class Signup extends Component {
     render() {
         const {name, email, password, error} = this.state;
         return (
-            <div className="container">
-                <h2 className="mt-5 mb-5">Signup</h2>
-
+            <Container>
+                <Row><h3>Project 3</h3></Row>
+                <div className="header">
                 <div className="alert alert-primary" style={{display: error ? "" : "none"}}>
                     {error}
                 </div>
@@ -65,10 +66,11 @@ export class Signup extends Component {
                         <input onChange={this.handleChange("password")} type="password" className="form-control" value={password}/>
                     </div>
                     <button onClick={this.clickSubmit} className="btn-raised btn-secondary">
-                        Submit
+                        Create Account
                     </button>
                 </form>
-            </div>
+                </div>
+            </Container>
         );
     }
 }

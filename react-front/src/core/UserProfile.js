@@ -1,12 +1,13 @@
 import React from 'react';
 import Profile from '../feed/Profile';
-import NavBar from './Nav';
+import Nav from './Nav';
+import {Container, Row} from "react-bootstrap/";
 
 const UserProfile = () => (
-    <div>
-        <NavBar />
+    <Container>
+        <Row><h2>Project 3</h2> <Nav /></Row>
         <Profile />
-    </div>
+    </Container>
 );
 
 export default UserProfile;
