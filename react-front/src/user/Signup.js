@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import { Link, Redirect } from 'react-router-dom';
 import '../index.css';
 import {Container, Row} from "react-bootstrap/";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPrescription } from "@fortawesome/free-solid-svg-icons";
 
 export class Signup extends Component {
     constructor() {
@@ -9,25 +12,25 @@ export class Signup extends Component {
             name: "",
             email: "",
             password: "",
-            error: ""
+            error: false,
+            redirect: false
         }
     }
 
     handleChange = (name) => (event) => {
-        this.setState({error: ""});
         this.setState({[name]: event.target.value});
     };
 
     clickSubmit = event => {
         event.preventDefault();
         const {name, email, password} = this.state;
+        this.setState({ error: false, email: "", password: "" }); 
         const user = {
             name,
             email,
             password
         };
-        // console.log(user);
-        fetch("http://localhost:3000/signup", {
+        fetch("http://localhost:8080/signup", {
             method: "POST",
             headers: {
                 Accept: "application/json",
@@ -35,21 +38,29 @@ export class Signup extends Component {
             },
             body: JSON.stringify(user)
         })
-        .then(response => {
-            return response.json();
+        .then((response) => {
+            if(!response.status.ok) {
+                this.setState({ error: true });
+            } else if (response.status===200) {
+                this.setState({ redirect: true });
+                this.setState('loggedIn', true);
+            } 
         })
         .catch(err => console.log(err));
     };
 
 
     render() {
-        const {name, email, password, error} = this.state;
+        const {name, email, password, error, redirect} = this.state;
+        if (redirect) {
+            return <Redirect to='/' />;
+        }
         return (
             <Container>
-                <Row><h3>Project 3</h3></Row>
                 <div className="header">
-                <div className="alert alert-primary" style={{display: error ? "" : "none"}}>
-                    {error}
+                <Row><FontAwesomeIcon icon={ faPrescription } size="2x" color="red" /><h2>JARGON</h2></Row>
+                <div className="alert alert-danger" style={{display: error ? "" : "none"}}>
+                    Password must contain at least 6 characters. Password must contain a number.
                 </div>
 
                 <form>
@@ -65,9 +76,14 @@ export class Signup extends Component {
                         <label className="text-muted">Password</label>
                         <input onChange={this.handleChange("password")} type="password" className="form-control" value={password}/>
                     </div>
-                    <button onClick={this.clickSubmit} className="btn-raised btn-secondary">
+                    <button onClick={this.clickSubmit} className="btn-raised btn-primary">
                         Create Account
-                    </button>
+                    </button> {"                               "}
+                    <Link to={"/signin"}>
+                        <button className="btn-raised btn-success">
+                            Log In
+                        </button>                        
+                    </Link>
                 </form>
                 </div>
             </Container>

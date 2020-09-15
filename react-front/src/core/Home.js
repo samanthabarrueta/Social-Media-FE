@@ -1,13 +1,14 @@
 import React from 'react';
 import HomeFeed from '../feed/Home';
 import Nav from './Nav';
-import Container from "react-bootstrap/Container";
+import {Container, Row} from "react-bootstrap/";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPrescription } from "@fortawesome/free-solid-svg-icons";
 
 const Home = () => (
     <Container>
         <div className="header">
-            <h2>Project 3</h2><br /><br />
-            <Nav />
+        <Row><FontAwesomeIcon icon={ faPrescription } size="2x" color="red" /><h2>JARGON</h2><Nav /></Row>
         </div>
         <div>
             <HomeFeed />

@@ -6,7 +6,7 @@ export class HomeFeed extends Component {
     render() {
         return (
             <div>
-                <AddPostForm /> <br /><br />
+                <AddPostForm /> 
                 <HomePosts />
             </div>
         )
